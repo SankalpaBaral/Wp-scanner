@@ -2,6 +2,7 @@
 # --SankalpaBaral--
 
 import requests
+print("Enter the url without adding https/http\n")
 
 url = input("Enter the target url ")
 target = ("https://"+url)
@@ -50,9 +51,21 @@ else:
 
 f = requests.get("https://"+url+"/.htaccess")
 if f.status_code==200:
-    print("[!].htaccess file is enabled")
+    print("[!].htaccess file is enabled\n")
 else:
-    print("[!].htaccess file is disabled")
+    print("[!].htaccess file is disabled\n")
+
+g = requests.get("https://"+url+"/.gitignore")
+if g.status_code==200:
+    print("[!].gitignore file is enabled\n")
+else:
+    print("[!].gitignore file is disabled\n")
+
+h = requests.get("https://"+url+"/.log")
+if h.status_code==200:
+    print("[!].log file is enabled\n")
+else:
+    print("[!].log file is disabled\n")
 
 
      
