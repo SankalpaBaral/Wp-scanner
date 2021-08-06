@@ -1,2 +1,2 @@
 # Wp-scanner
-Wordpress files detector
+A simple wordpress files detector tool
