@@ -76,6 +76,7 @@ if i.status_code==200:
     print("[!] license.txt file is enabled\n")
 else:
     print("[!] license.txt file is disabled\n")
+      
 j = requests.get(target+"/wp-config.php")
 if j.status_code==200:
     print("[!] wp-config.php file is enabled\n")
