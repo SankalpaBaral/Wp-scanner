@@ -1,8 +1,9 @@
 # Wordpress vulnerability scanner
-# --Made--by--SankalpaBaral--
+# --SankalpaBaral--
 
 import requests
 import pyfiglet
+
 text = pyfiglet.figlet_format("WP SCANNER")
 print(text)
 
@@ -15,9 +16,9 @@ target = ("https://"+url)
 print("Scanning",target+"\n")
 
 
-a = requests.get("https://"+url+"/xmlrpc.php")
+a = requests.get("https://"+url+"/xmlrpc.php\n")
 if a.status_code==405:
-    print("[!] xmlrpc.php file is enabled\n")
+   print("[!] xmlrpc.php file is enabled\n")
 else:
     print("[!] xmlrpc.php file is disabled\n")
 
@@ -44,7 +45,7 @@ e = requests.get("https://"+url+"/wp-content/uploads")
 if e.status_code==200:
     print("[!] Direcotry travelsal  is enabled\n")
 else:
-    print("[!]Direcotry travelsal is disabled\n")
+    print("[!] Direcotry travelsal is disabled\n")
 
 e = requests.get("https://"+url+"/sitemap.xml")
 if e.status_code==200:
@@ -75,8 +76,19 @@ if i.status_code==200:
     print("[!] license.txt file is enabled\n")
 else:
     print("[!] license.txt file is disabled\n")
+j = requests.get(target+"/wp-config.php")
+if j.status_code==200:
+    print("[!] wp-config.php file is enabled\n")
+else:
+    print("[!] wp-config.php file is disabled\n")
 
+k = requests.get(target+"/readme.html")
+if k.status_code==200:
+    print("[!] readme.html file is enabled\n")
+else:
+    print("[!] readme.html file is disabled\n")
 
+  
      
 
 
