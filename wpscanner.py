@@ -1,12 +1,12 @@
 # Wordpress vulnerability scanner
 # --SankalpaBaral--
-
+# Importing required modules
 import requests
 import pyfiglet
 
+
 text = pyfiglet.figlet_format("WP SCANNER")
 print(text)
-
 
 print("Enter the url without adding https/http\n")
 
@@ -47,8 +47,8 @@ if e.status_code==200:
 else:
     print("[!] Direcotry travelsal is disabled\n")
 
-e = requests.get("https://"+url+"/sitemap.xml")
-if e.status_code==200:
+l = requests.get("https://"+url+"/sitemap.xml")
+if l.status_code==200:
     print("[!] Sitemap.xml file is enabled\n")
 else:
     print("[!] Sitemap.xml file is disabled\n")
@@ -76,7 +76,6 @@ if i.status_code==200:
     print("[!] license.txt file is enabled\n")
 else:
     print("[!] license.txt file is disabled\n")
-      
 j = requests.get(target+"/wp-config.php")
 if j.status_code==200:
     print("[!] wp-config.php file is enabled\n")
@@ -88,6 +87,13 @@ if k.status_code==200:
     print("[!] readme.html file is enabled\n")
 else:
     print("[!] readme.html file is disabled\n")
+
+z = requests.get(target)
+header = z.headers
+if "X-Frame-Options" in header:
+    print("Site is not vulnerable to clickjacking")
+else:
+    print("Site is vulnerable to clickjacking")
 
   
      
